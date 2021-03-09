@@ -12,7 +12,7 @@
 		<div clas="w-full">
 			<div class="w-full p-4">
 				<div class="flex">
-						
+						<user></user>
 				</div>
 			</div>
 		</div>
@@ -20,6 +20,20 @@
 	
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	<script>
+		Vue.component('user',{
+			data(){
+				return{
+					
+				name: 'Kofi Ramos',
+				}
+
+			},
+			template: `
+				<div class="user">
+					{{name}}
+				</div>
+			`
+		})
 	
 		let app = new Vue({
 			el: "#app"
