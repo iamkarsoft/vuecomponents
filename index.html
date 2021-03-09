@@ -12,7 +12,7 @@
 		<div clas="w-full">
 			<div class="w-full p-4">
 				<div class="flex">
-						
+						<post class="w-full"></post>
 				</div>
 			</div>
 		</div>
@@ -20,9 +20,44 @@
 	
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	<script>
+
+		let User = {
+			data() {
+				return{
+					name: 'Koby Jones',
+				}
+			},
+			template: `
+
+				<div class="user">{{name}}</div>
+			`
+		};
+
+		let Post  = {
+			data() {
+				return {
+					title: 'Lorem ipsum dolor, sit amet.',
+					body: 'Lorem ipsum dolor, sit amet.Lorem ipsum dolor, sit amet.Lorem ipsum dolor, sit amet.'
+				}
+			},
+			components: {
+				'user': User,
+
+			},
+			template: `
+				<div class="post">
+					<h3 class="text-2xl text-indigo-500">{{title}}</h3>
+					<p>{{body}}</p>
+					<user class="text-sm text-red-300"></user>
+				</div>
+			`
+		};
 	
 		let app = new Vue({
-			el: "#app"
+			el: "#app",
+			components:{
+				'post': Post,
+			}
 		})
 	</script>
 </body>
